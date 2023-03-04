@@ -3,8 +3,8 @@ const path = require("node:path")
 
 // Require the necessary discord.js classes
 const { Client, Events, GatewayIntentBits, ActivityType, Collection, Partials, WebhookClient } = require('discord.js');
-const prefix = "!"
-const {cyanBright, gray, blue, red} = require("colorette")
+
+const {cyanBright, gray} = require("colorette")
 
 
 
