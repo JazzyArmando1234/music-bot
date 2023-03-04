@@ -80,4 +80,4 @@ for (const file of eventFiles) {
 
 // Log in to Discord with your client's token
 
-client.login("TOKEN HERE")
+client.login("TOKEN")

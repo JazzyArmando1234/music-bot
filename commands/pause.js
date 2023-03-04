@@ -12,7 +12,7 @@ module.exports = {
         }
 
         const paused = queue.node.setPaused(true)
-        return interaction.reply({ content: paused ? 'paused' : "something whent wrong" })
+        return interaction.reply({ content: paused ? 'paused' : "something went wrong" })
     }catch (error) {
         console.log(error)
     }
