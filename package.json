@@ -1,0 +1,19 @@
+{
+  "name": "music-bot",
+  "version": "1.0.0",
+  "description": "a music bot made using JavaScript and discord-player v6",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JazzyArmando1234/a-music-bot.git"
+  },
+  "author": "JazzyArmando1234",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JazzyArmando1234/a-music-bot/issues"
+  },
+  "homepage": "https://github.com/JazzyArmando1234/a-music-bot#readme"
+}
