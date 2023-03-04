@@ -15,5 +15,12 @@
   "bugs": {
     "url": "https://github.com/JazzyArmando1234/a-music-bot/issues"
   },
-  "homepage": "https://github.com/JazzyArmando1234/a-music-bot#readme"
+  "homepage": "https://github.com/JazzyArmando1234/a-music-bot#readme",
+  "dependencies": {
+    "@discord-player/equalizer": "^0.1.4-dev.1",
+    "@discord-player/extractor": "^4.0.0-dev.3",
+    "@discord-player/utils": "^0.1.0-dev.3",
+    "discord-player": "^6.0.0-dev.5",
+    "discord.js": "^14.7.1"
+  }
 }

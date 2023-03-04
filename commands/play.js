@@ -1,14 +1,5 @@
-const { SlashCommandBuilder, WebhookClient, ActivityType, ActionRowBuilder, ButtonBuilder, ButtonStyle, InteractionResponse } = require("discord.js");
+const { SlashCommandBuilder } = require("discord.js");
 const { EmbedBuilder } = require("discord.js");
-const id = "1057302445065252904"
-const token = "ksR9vCxRgEtevo4xUHkEsj1N0J02075LDWMiCQ_qtZZObmkU8nB-noah-uVTxfk5YXW5"
-const webhook = new WebhookClient({ id: id, token: token })
-const ro_trans = require("../translations/romanian/bot-commands.json")
-const {QueryType, Queue, QueueRepeatMode} = require("discord-player")
-const { SQLiteDriver } = require("xen.db");
-// For custom file path, use the 'fileName' option.
-// Eg. new SQLiteDriver({ fileName: "path/mydb.sqlite" });
-const db = new SQLiteDriver({fileName: 'queue.sqlite'});
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -28,14 +19,9 @@ module.exports = {
         ),
     async execute(interaction) {
        try {
-        /*const check1 = await interaction.client.db.get("DISABLED")
-        if(check1.includes("play")) {
-            return interaction.reply("command is under maintenance")
-        }*/
             const stri = interaction.options.getString("247")
             const check = interaction.options.getString("string")
             
-           // Search for the song using the discord-player
            const result = await interaction.client.player.search(check, {
             requestedBy: interaction.user,
             searchEngine: QueryType.AUTO
@@ -46,7 +32,7 @@ module.exports = {
         .setTitle(`No results`)
         .setColor(`#ff0000`)
         .setTimestamp()
-        // finish if no tracks were found
+
         if (!result.hasTracks()) {
             return interaction.reply({embeds: [results]})
         }
@@ -67,7 +53,7 @@ module.exports = {
               },
             
         })
-       //return interaction.editReply({ content: `playing ${yes.track.playlist ? `tracks from ${yes.track.playlist.title}` : `${yes.track.title}`}`})
+        
         const embed = new EmbedBuilder()
         function yess() {
             const totalDurationMs = yes.track.playlist.tracks.reduce((a, c) => c.durationMS + a, 0)
@@ -87,8 +73,6 @@ module.exports = {
             .setFooter({ text: `Duration: ${yes.track.playlist ? `${yess()}` : `${yes.track.duration}`} | Event Loop Lag ${interaction.client.player.eventLoopLag.toFixed(0)}` })
             return interaction.editReply({ embeds: [embed ]})
         }catch (error) {
-            webhook.send(`${error}`)
-            interaction.client.user.setPresence({activities: [{name: 'with bugs', type: ActivityType.Playing}], status: 'idle'})
             console.log(error)
         }
     }

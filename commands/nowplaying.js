@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, ActivityType, EmbedBuilder } = require("discord.js");
+const { SlashCommandBuilder, EmbedBuilder } = require("discord.js");
 module.exports = {
     data: new SlashCommandBuilder()
         .setName("np")
@@ -25,8 +25,6 @@ module.exports = {
 
         await interaction.reply({ embeds: [embed] })
     }catch (error) {
-        webhook.send(`${error}`)
-        interaction.client.user.setPresence({activities: [{name: 'with bugs', type: ActivityType.Playing}], status: 'idle'})
         console.log(error)
     }
 }
